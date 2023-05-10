@@ -1,12 +1,12 @@
 package com.example.demo.model.dto;
 
 import com.example.demo.model.Game;
+import com.example.demo.projections.GameMinProjection;
 
 public class GameMinDto {
     private Long id;
     private String title;
     private Integer year;
-    private String genre;
     private String imgUrl;
     private String shortDescription;
     public GameMinDto() {
@@ -15,9 +15,16 @@ public class GameMinDto {
         id = game.getId();
         title = game.getTitle();
         year = game.getYear();
-        genre = game.getGenre();
         imgUrl = game.getImgUrl();
         shortDescription = game.getShortDescription();
+    }
+
+    public GameMinDto(GameMinProjection gameMinProjection){
+        id = gameMinProjection.getId();
+        title = gameMinProjection.getTitle();
+        year = gameMinProjection.getYear();
+        imgUrl = gameMinProjection.getImgUrl();
+        shortDescription = gameMinProjection.getShortDescription();
     }
 
     public Long getId() {
@@ -28,9 +35,6 @@ public class GameMinDto {
     }
     public Integer getYear() {
         return year;
-    }
-    public String getGenre() {
-        return genre;
     }
     public String getImgUrl() {
         return imgUrl;

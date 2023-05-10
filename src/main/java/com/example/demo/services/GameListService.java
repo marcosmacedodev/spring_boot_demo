@@ -1,7 +1,6 @@
 package com.example.demo.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,12 +21,6 @@ public class GameListService {
     public List<GameListDto> findAll(){
         List<GameList> list = repository.findAll();
         return list.stream().map(gameList -> new GameListDto(gameList)).toList();
-    }
-
-    @Transactional(readOnly = true)
-    public GameListDto findById(Long id){
-        Optional<GameList> result = repository.findById(id);
-        return new GameListDto(result.orElse(null));
     }
     
 }
