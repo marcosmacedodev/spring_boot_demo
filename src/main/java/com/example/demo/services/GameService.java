@@ -40,5 +40,5 @@ public class GameService {
         List<GameMinProjection> list = repository.searchByList(listId);
         return list.stream().map((game) -> new GameMinDto(game)).collect(Collectors.toList());
     }
-    
+
 }
